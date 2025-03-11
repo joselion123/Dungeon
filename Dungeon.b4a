@@ -1,0 +1,122 @@
+﻿Build1=Default,b4a.example
+File1=abajo.jpg
+File10=Layout.bal
+File11=sena.png
+File12=sr295ef6249a6aws3.png
+File2=arriba.jpg
+File3=Captura de pantalla 2025-03-10 135617.png
+File4=Captura de pantalla 2025-03-10 135626.png
+File5=Captura de pantalla 2025-03-10 135632.png
+File6=derecha.jpg
+File7=Imagen de WhatsApp 2025-03-09 a las 17.07.05_d90b1134.jpg
+File8=Inicio.bal
+File9=izquierda.jpg
+FileGroup1=Default Group
+FileGroup10=Default Group
+FileGroup11=Default Group
+FileGroup12=Default Group
+FileGroup2=Default Group
+FileGroup3=Default Group
+FileGroup4=Default Group
+FileGroup5=Default Group
+FileGroup6=Default Group
+FileGroup7=Default Group
+FileGroup8=Default Group
+FileGroup9=Default Group
+Group=Default Group
+Library1=core
+Library2=xui
+ManifestCode='This code will be applied to the manifest file during compilation.~\n~'You do not need to modify it in most cases.~\n~'See this link for for more information: https://www.b4x.com/forum/showthread.php?p=78136~\n~AddManifestText(~\n~<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="34"/>~\n~<supports-screens android:largeScreens="true" ~\n~    android:normalScreens="true" ~\n~    android:smallScreens="true" ~\n~    android:anyDensity="true"/>)~\n~SetApplicationAttribute(android:icon, "@drawable/icon")~\n~SetApplicationAttribute(android:label, "$LABEL$")~\n~CreateResourceFromFile(Macro, Themes.LightTheme)~\n~'End of default text.~\n~
+Module1=Starter
+NumberOfFiles=12
+NumberOfLibraries=2
+NumberOfModules=1
+Version=13
+@EndOfDesignText@
+#Region  Project Attributes 
+	#ApplicationLabel: B4A Example
+	#VersionCode: 1
+	#VersionName: 
+	'SupportedOrientations possible values: unspecified, landscape or portrait.
+	#SupportedOrientations: landscape
+	#CanInstallToExternalStorage: False
+#End Region
+
+#Region  Activity Attributes 
+	#FullScreen:True
+	#IncludeTitle: False
+	#End Region
+
+Sub Process_Globals
+	Private TimerMover As Timer ' Timer para mover el Pixel
+	Private Direccion As String ' Guarda la dirección del movimiento
+End Sub
+
+Sub Globals
+	Private Pixel As ImageView
+	Private arriba As Button
+	Private abajo As Button
+	Private izquierda As Button
+	Private derecha As Button
+End Sub
+
+Sub Activity_Create(FirstTime As Boolean)
+	Activity.LoadLayout("Layout")
+    
+	' Inicializar el Timer
+	TimerMover.Initialize("TimerMover", 50) ' Se ejecutará cada 50ms
+	TimerMover.Enabled = False
+End Sub
+
+' Evento del Timer para mover el Pixel en la dirección indicada
+Sub TimerMover_Tick
+	Select Case Direccion
+		Case "Arriba"
+			Pixel.Top = Pixel.Top - 5
+		Case "Abajo"
+			Pixel.Top = Pixel.Top + 5
+		Case "Izquierda"
+			Pixel.Left = Pixel.Left - 5
+		Case "Derecha"
+			Pixel.Left = Pixel.Left + 5
+	End Select
+End Sub
+
+' Cuando se PRESIONA el botón, inicia el Timer y guarda la dirección
+Sub Arriba_Down
+	Direccion = "Arriba"
+	TimerMover.Enabled = True
+End Sub
+
+Sub Abajo_Down
+	Direccion = "Abajo"
+	TimerMover.Enabled = True
+End Sub
+
+Sub Izquierda_Down
+	Direccion = "Izquierda"
+	TimerMover.Enabled = True
+End Sub
+
+Sub Derecha_Down
+	Direccion = "Derecha"
+	TimerMover.Enabled = True
+End Sub
+
+' Cuando se SUELTA el botón, detiene el Timer
+Sub Arriba_Up
+	TimerMover.Enabled = False
+End Sub
+
+Sub Abajo_Up
+	TimerMover.Enabled = False
+End Sub
+
+Sub Izquierda_Up
+	TimerMover.Enabled = False
+End Sub
+
+Sub Derecha_Up
+	TimerMover.Enabled = False
+End Sub
+
