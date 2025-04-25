@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Página Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <div class="container mt-5">
+    <h2 class="mb-4">Listado de Aprendices</h2>
+
+    <table class="table table-bordered table-hover" id="tabla-aprendices">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Matriculado</th>
+          <th>Email</th>
+          <th>Foto</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+<button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#formModal" onclick="abrirFormulario()">Agregar Aprendiz</button>
+
+<div class="modal fade" id="formModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <form class="modal-content" id="form-aprendiz">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitulo">Agregar Aprendiz</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="id">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" id="nombre" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="nombre" class="form-label">Apellido</label>
+            <input type="text" id="apellido" class="form-control" required>
+          </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+          <label for="foto" class="form-label">URL de la Foto</label>
+          <input type="text" id="foto" class="form-control" required>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" id="matriculado" class="form-check-input">
+          <label for="matriculado" class="form-check-label">Está Matriculado</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+  <script src="/Front/app2.js"></script>
+</body>
+</html>
+
